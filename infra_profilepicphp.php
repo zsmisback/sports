@@ -19,7 +19,7 @@ if(isset($_POST['sign']))
 			$data = file_get_contents($_FILES['file']['tmp_name']);
 			$base64 = 'data:image/'.$type.';base64,'.base64_encode($data);
 			$sql = "INSERT INTO infra_profilepic(infra_id,username,profilepic) VALUES('$infra_id','$infra_username','$base64')";
-			
+			$result = $conn->query($sql);
 	        
 	}
 	
