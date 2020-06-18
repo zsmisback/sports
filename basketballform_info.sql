@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 04:04 PM
+-- Generation Time: Jun 18, 2020 at 08:07 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -41,6 +41,9 @@ CREATE TABLE `basketballform_info` (
   `3pointcor` varchar(255) NOT NULL,
   `the_key` varchar(255) NOT NULL,
   `freethrowline` varchar(255) NOT NULL,
+  `seats` varchar(255) NOT NULL,
+  `locker_room` varchar(255) NOT NULL,
+  `showers` varchar(255) NOT NULL,
   `summary` blob NOT NULL,
   `features` varchar(255) NOT NULL,
   `rules` varchar(255) NOT NULL
@@ -64,7 +67,7 @@ ALTER TABLE `basketballform_info`
 -- AUTO_INCREMENT for table `basketballform_info`
 --
 ALTER TABLE `basketballform_info`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

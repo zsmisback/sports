@@ -95,7 +95,9 @@ else
   <input type="checkbox" id="footb" name="football" value="football">
   <label for="footb">Football</label><br>
   <input type="checkbox" id="basketb" name="basketball" value="basketball">
-  <label for="basketb">Basketball</label><br><br>
+  <label for="basketb">Basketball</label><br>
+  <input type="checkbox" id="mm" name="mma" value="mma">
+  <label for="mm">MMA</label><br><br>
 
 
 <p id="error" class="text-center"><?php echo $error; ?></p>

@@ -25,14 +25,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `infra_profilepic`
+-- Table structure for table `mmaform_info`
 --
 
-CREATE TABLE `infra_profilepic` (
-  `id` int(255) NOT NULL,
+CREATE TABLE `mmaform_info` (
+  `id` int(11) NOT NULL,
   `infra_id` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `profilepic` blob NOT NULL
+  `exterior` varchar(255) NOT NULL,
+  `interior` varchar(255) NOT NULL,
+  `walkaway` varchar(255) NOT NULL,
+  `entrance_gates` varchar(255) NOT NULL,
+  `height_gr_cv` varchar(255) NOT NULL,
+  `height_cv_fe` varchar(255) NOT NULL,
+  `seats` varchar(255) NOT NULL,
+  `locker_room` varchar(255) NOT NULL,
+  `showers` varchar(255) NOT NULL,
+  `summary` varchar(255) NOT NULL,
+  `features` varchar(255) NOT NULL,
+  `rules` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,9 +51,9 @@ CREATE TABLE `infra_profilepic` (
 --
 
 --
--- Indexes for table `infra_profilepic`
+-- Indexes for table `mmaform_info`
 --
-ALTER TABLE `infra_profilepic`
+ALTER TABLE `mmaform_info`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -50,10 +61,10 @@ ALTER TABLE `infra_profilepic`
 --
 
 --
--- AUTO_INCREMENT for table `infra_profilepic`
+-- AUTO_INCREMENT for table `mmaform_info`
 --
-ALTER TABLE `infra_profilepic`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+ALTER TABLE `mmaform_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

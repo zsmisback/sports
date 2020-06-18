@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 04:05 PM
+-- Generation Time: Jun 18, 2020 at 08:08 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -38,7 +38,8 @@ CREATE TABLE `infra_main` (
   `summary` blob NOT NULL,
   `cricket` varchar(255) NOT NULL,
   `football` varchar(255) NOT NULL,
-  `basketball` varchar(255) NOT NULL
+  `basketball` varchar(255) NOT NULL,
+  `mma` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -59,7 +60,7 @@ ALTER TABLE `infra_main`
 -- AUTO_INCREMENT for table `infra_main`
 --
 ALTER TABLE `infra_main`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

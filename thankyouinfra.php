@@ -4,28 +4,15 @@ session_start();
 
 include 'connect.php';
 
+
+
+
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
 {
 	header("Location:getout.php");
 }
 
 
-$sql = "SELECT * FROM infra_main WHERE infra_id = '$_SESSION[infra_id]' AND football = 'football'";
-$result = $conn->query($sql);
-
-if(!$result)
-{
-	echo "Error";
-}
-
-if($result->num_rows == 1)
-{
-	
-}
-else
-{
-	header("Location:thankyou.php");
-}
 
 ?>
 <html lang="en">
@@ -47,7 +34,7 @@ else
 	</style>
   </head>
   <body>
-  <h2 class='text-center'>Thank you for join Champion.in</h2>
+  <h2 class='text-center'>Thank you for joining Champion.in</h2>
   <p class='text-center'>We are currently processing your data so please be patient.</p>
   </body>
   </html>

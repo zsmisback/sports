@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 04:04 PM
+-- Generation Time: Jun 18, 2020 at 08:07 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -34,6 +34,9 @@ CREATE TABLE `cricketform_info` (
   `username` varchar(255) NOT NULL,
   `cricket_ground_size` varchar(255) NOT NULL,
   `cricket_pitch_size` varchar(255) NOT NULL,
+  `seats` varchar(255) NOT NULL,
+  `locker_room` varchar(255) NOT NULL,
+  `showers` varchar(255) NOT NULL,
   `cricket_summary` blob NOT NULL,
   `cricket_features` varchar(255) NOT NULL,
   `cricket_rules` varchar(255) NOT NULL
@@ -57,7 +60,7 @@ ALTER TABLE `cricketform_info`
 -- AUTO_INCREMENT for table `cricketform_info`
 --
 ALTER TABLE `cricketform_info`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

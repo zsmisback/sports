@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 04:04 PM
+-- Generation Time: Jun 18, 2020 at 08:08 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -38,6 +38,9 @@ CREATE TABLE `footballform_info` (
   `goal_width` varchar(255) NOT NULL,
   `penalty_length` varchar(255) NOT NULL,
   `penalty_width` varchar(255) NOT NULL,
+  `seats` varchar(255) NOT NULL,
+  `locker_room` varchar(255) NOT NULL,
+  `showers` varchar(255) NOT NULL,
   `summary` blob NOT NULL,
   `features` varchar(255) NOT NULL,
   `rules` varchar(255) NOT NULL

@@ -34,13 +34,13 @@ if(isset($_POST['sign']))
 	{
 		$error = 'Please enter the summary';
 	}
-	elseif(!isset($_POST['cricket']) && !isset($_POST['football']) && !isset($_POST['basketball']))
+	elseif(!isset($_POST['cricket']) && !isset($_POST['football']) && !isset($_POST['basketball']) && !isset($_POST['mma']))
 	{
 		$error = 'Please select a sport';
 	}
 	else
 	{
-		$sql = "INSERT INTO infra_main(infra_id,username,contact_number,address,pincode,summary,cricket,football,basketball) VALUES('$infra_id','$infra_username','$contact_number','$address','$pincode','$summary','$_POST[cricket]','$_POST[football]','$_POST[basketball]')";
+		$sql = "INSERT INTO infra_main(infra_id,username,contact_number,address,pincode,summary,cricket,football,basketball,mma) VALUES('$infra_id','$infra_username','$contact_number','$address','$pincode','$summary','$_POST[cricket]','$_POST[football]','$_POST[basketball]','$_POST[mma]')";
 		$result = $conn->query($sql);
 	}
 	

@@ -11,7 +11,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true)
 	header("Location:getout.php");
 }
 
-$sql = "SELECT * FROM infra_main WHERE infra_id = '$_SESSION[infra_id]' AND cricket = 'cricket'";
+$sql = "SELECT * FROM infra_main WHERE infra_id = '$_SESSION[infra_id]' AND mma = 'mma'";
 $result = $conn->query($sql);
 
 if(!$result)
@@ -25,8 +25,9 @@ if($result->num_rows == 1)
 }
 else
 {
-	header("Location:basketballform.php");
+	header("Location:thankyouinfra.php");
 }
+
 
 ?>
 <html lang="en">
@@ -42,7 +43,7 @@ else
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-   <script src="allowonlynumbers.js"></script>
+ <script src="allowonlynumbers.js"></script>
 	<link rel="stylesheet" href="assets/css/formstyle.css">
 	<script src="ckeditor/ckeditor.js"></script>
 	<style>
@@ -63,42 +64,33 @@ else
 					
 <form name="infrastructure" id="infras" method="post">
 <?php if(isset($error_mysql)){echo "<br>".$error_mysql;} ?>
-<input type="hidden" class="form-control" id="" value="<?php echo $_SESSION['infra_id']; ?>" name="cricketform_info|infra_id"/>
-<input type="hidden" class="form-control" id="" value="<?php echo $_SESSION['username']; ?>" name="cricketform_info|username"/>
+<input type="hidden" class="form-control" id="" value="<?php echo $_SESSION['infra_id']; ?>" name="mmaform_info|infra_id"/>
+<input type="hidden" class="form-control" id="" value="<?php echo $_SESSION['username']; ?>" name="mmaform_info|username"/>
 <input type="hidden" class="form-control" id="" value="<?php echo $_SESSION['infra_id']; ?>" name="infra_timings|infra_id"/>
 <input type="hidden" class="form-control" id="" value="<?php echo $_SESSION['username']; ?>" name="infra_timings|username"/>
-<input type="hidden" class="form-control" id="" value="cricket" name="infra_timings|sport_name"/>
-<h2>Cricket registration</h2>
+<input type="hidden" class="form-control" id="" value="mma" name="infra_timings|sport_name"/>
+<h2>MMA registration</h2>
 <hr>
-<h5 class="text-center">The Ground</h5>
-<br>
-<div class="row">
-<div class="col-md-6">
-<input type="text" class="form-control mb-4" name="cricketform_info|cricket_ground_size" id="cricground" placeholder="Cricket ground size (in meters)">
-</div>
-<div class="col-md-6">
-<input type="text" class="form-control mb-4" name="cricketform_info|cricket_pitch_size" id="cricpitch" placeholder="Cricket pitch size (in meters)">
-</div>
-</div>
-<br>
-<div class='form-check'>
-		     <input type='checkbox' class='form-check-input mb-4' name='cricketform_info|seats' value='seats'>Do you provide seats?
+<input type='text' class='form-control mb-4' name='mmaform_info|exterior' placeholder='Octagon Exterior (in meters)'><input type='text' class='form-control mb-4' name='mmaform_info|interior' placeholder='Octagon Interior (in meters)'><input type='text' class='form-control mb-4' name='mmaform_info|walkaway' placeholder='Octagon Walkaway (in meters)'><input type='text' class='form-control mb-4' name='mmaform_info|entrance_gates' placeholder='Octagon Entrance Gates (in meters)'><input type='text' class='form-control mb-4' name='mmaform_info|height_gr_cv' placeholder='Octagon Height from ground to canvas(in meters)'><input type='text' class='form-control mb-4' name='mmaform_info|height_cv_fe' placeholder='Octagon Height from canvas to fence (in meters)'>
+             <div class='form-check'>
+		     <input type='checkbox' class='form-check-input mb-4' name='mmaform_info|seats' value='seats'>Do you provide seats?
 			 </div><div class='form-check'>
-		     <input type='checkbox' class='form-check-input mb-4' name='cricketform_info|locker_room' value='locker_room'>Do you provide locker rooms?
+		     <input type='checkbox' class='form-check-input mb-4' name='mmaform_info|locker_room' value='locker_room'>Do you provide locker rooms?
 			 </div><div class='form-check'>
-		     <input type='checkbox' class='form-check-input mb-4' name='cricketform_info|showers' value='showers'>Do you provide showers?
+		     <input type='checkbox' class='form-check-input mb-4' name='mmaform_info|showers' value='showers'>Do you provide showers?
 			 </div>
+
 <br>
-<textarea class="form-control mb-4" rows="5" name="cricketform_info|cricket_summary" id="cricsummary" placeholder="Add a summary about your cricket field"></textarea>
+<textarea class="form-control mb-4" rows="5" name="mmaform_info|summary" id="basketsummary" placeholder="Add a summary about your octagon"></textarea>
 <h3 class="text-center mb-3">Features and Rules</h3>
 <h5 class="text-center">(Please write these in either numbered or bulleted forms)</h5>
 <hr>
-<p class="mb-3">Features that you provide for your customers (For example:Bats,Balls,Clothes)(Optional):</p> 
+<p class="mb-3">Features that you provide for your customers (For example:Shoes,Clothes,Gloves)(Optional):</p> 
 
-<textarea class="form-control mb-4 ckeditor" rows="5" name="cricketform_info|cricket_features" id="cricfeatures"></textarea>
+<textarea class="form-control mb-4 ckeditor" rows="5" name="mmaform_info|features" id="basktetfeatures"></textarea>
 <br>
 <p class="mb-3">Rules(If any):</p>	
-<textarea class="form-control mb-4 ckeditor" rows="5" name="cricketform_info|cricket_rules" id="cricrules"></textarea>
+<textarea class="form-control mb-4 ckeditor" rows="5" name="mmaform_info|rules" id="basketrules"></textarea>
 <br>
 <h3 class="text-center mb-3">Timings</h3>
 <h6 class="text-center mb-3">Monday</h6>
@@ -253,18 +245,41 @@ Closing times:
 <script>
 
 
-setInputFilter(document.getElementById("cricground"), function(value) {
+setInputFilter(document.getElementById("colength"), function(value) {
   return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
 });
 
-setInputFilter(document.getElementById("cricpitch"), function(value) {
+setInputFilter(document.getElementById("cowidth"), function(value) {
   return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
 });
 
-setInputFilter(document.getElementById("numofplayers"), function(value) {
+setInputFilter(document.getElementById("corimheight"), function(value) {
+  return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+});
+
+setInputFilter(document.getElementById("centcirclediameter"), function(value) {
+  return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+});
+
+setInputFilter(document.getElementById("nochzonearc"), function(value) {
+  return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+});
+
+setInputFilter(document.getElementById("3pointlinedist"), function(value) {
+  return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+});
+
+setInputFilter(document.getElementById("3pointlinedistincor"), function(value) {
+  return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+});
+
+setInputFilter(document.getElementById("thek"), function(value) {
+  return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
+});
+
+setInputFilter(document.getElementById("freethr"), function(value) {
   return /^\d*\.?\d*$/.test(value); // Allow digits and '.' only, using a RegExp
 });
 </script>
 							  
 </body>
-</html>	

@@ -25,7 +25,7 @@ if($result->num_rows == 1)
 }
 else
 {
-	header("Location:thankyouinfra.php");
+	header("Location:mmaform.php");
 }
 
 ?>
@@ -100,6 +100,25 @@ else
 <input type="text" class="form-control mb-4" name="footballform_info|penalty_width" id="penwidth" placeholder="The penalty area width size (in meters)">
 </div>
 </div>
+<br>
+<div class='form-check'>
+		     <input type='checkbox' class='form-check-input mb-4' name='footballform_info|seats' value='seats'>Do you provide seats?
+			 </div><div class='form-check'>
+		     <input type='checkbox' class='form-check-input mb-4' name='footballform_info|locker_room' value='locker_room'>Do you provide locker rooms?
+			 </div><div class='form-check'>
+		     <input type='checkbox' class='form-check-input mb-4' name='footballform_info|showers' value='showers'>Do you provide showers?
+			 </div>
+<br>
+<textarea class="form-control mb-4" rows="5" name="footballform_info|summary" id="footsummary" placeholder="Add a summary about your football field"></textarea>
+<h3 class="text-center mb-3">Features and Rules</h3>
+<h5 class="text-center">(Please write these in either numbered or bulleted forms)</h5>
+<hr>
+<p class="mb-3">Features that you provide for your customers (For example:Balls,Shoes,Clothes)(Optional):</p> 
+
+<textarea class="form-control mb-4 ckeditor" rows="5" name="footballform_info|features" id="footfeatures"></textarea>
+<br>
+<p class="mb-3">Rules(If any):</p>	
+<textarea class="form-control mb-4 ckeditor" rows="5" name="footballform_info|rules" id="footrules"></textarea>
 <br>
 <h3 class="text-center mb-3">Timings</h3>
 <h6 class="text-center mb-3">Monday</h6>
@@ -230,18 +249,6 @@ Closing times:
 
 </div>
 </div>
-<br>
-<textarea class="form-control mb-4" rows="5" name="footballform_info|summary" id="footsummary" placeholder="Add a summary about your football field"></textarea>
-<h3 class="text-center mb-3">Features and Rules</h3>
-<h5 class="text-center">(Please write these in either numbered or bulleted forms)</h5>
-<hr>
-<p class="mb-3">Features that you provide for your customers (For example:Balls,Shoes,Clothes)(Optional):</p> 
-
-<textarea class="form-control mb-4 ckeditor" rows="5" name="footballform_info|features" id="footfeatures"></textarea>
-<br>
-<p class="mb-3">Rules(If any):</p>	
-<textarea class="form-control mb-4 ckeditor" rows="5" name="footballform_info|rules" id="footrules"></textarea>
-
 
 <p id="error" class="text-center"></p>
 <div class="row">
